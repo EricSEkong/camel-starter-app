@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogspot.ericsekong.examples.camel_starter_app.datarecords.Booking">
+    <!-- Insert data -->
+    <insert id="insertBookingData">
+		insert into sales.bookings (reference,lastUpdated,tripDate,cancelledDate,groupLeaderId,groupMembersId,bookingTotal)
+		values (#{reference},#{lastUpdated},#{tripDate},#{cancelledDate},#{groupLeaderId},#{groupMembersId},#{bookingTotal})
+	</insert>
+	
+	<select id="selectRecentBookingData" resultType="com.blogspot.ericsekong.examples.camel_starter_app.datarecords.Booking">
+        select TOP 100 FROM sales.bookings where cancelledDate IS NULL order by createdDate
+    </select>
+	
+</mapper>

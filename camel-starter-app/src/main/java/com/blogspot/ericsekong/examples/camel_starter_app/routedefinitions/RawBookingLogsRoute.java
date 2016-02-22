@@ -2,23 +2,28 @@ package com.blogspot.ericsekong.examples.camel_starter_app.routedefinitions;
 
 import org.apache.camel.builder.RouteBuilder;
 
-public class RawBookingLogsRoute extends RouteBuilder{
+public class RawBookingLogsRoute extends RouteBuilder {
 
-	
 	String sourceEndpoint = "direct:a";
-	String desinationEndpoint = "direct:b";
-	
-	
+	String processingEndpoint = "direct:b";
+	String insertSingleBooking = "mybatis-sqlserver-prod:insertBookingData";
+	String selectRecentBookings = "mybatis-sqlserver-prod:selectRecentBookingData";
+
 	@Override
 	public void configure() throws Exception {
-		// TODO Auto-generated method stub
+
+		from("direct:a") 
+		.to("log:out")
+		// other processors
+		.to(insertSingleBooking).end();
 		
-		from("direct:a")
-			.to("direct:b")
-			.end();
 		
-	
+		// Load in recent transactions and provide them to a camel route
+		
+		from(selectRecentBookings)
+			.split(body())
+			// other processing
+			.to(processingEndpoint).end();
 		
 	}
-
 }

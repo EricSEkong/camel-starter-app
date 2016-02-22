@@ -1,6 +1,5 @@
 package com.blogspot.ericsekong.examples.camel_starter_app.datarecords;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class Booking {
@@ -8,11 +7,11 @@ public class Booking {
 	private String reference;
 	private Date lastUpdated;
 	private Date tripDate;
+	private Date createdDate;
 	private Date cancelledDate;
 	private String groupLeaderId;
-	private String[] groupMembersId;
+	private String groupMembersId;
 	private Double bookingTotal;
-	
 	public String getReference() {
 		return reference;
 	}
@@ -31,6 +30,12 @@ public class Booking {
 	public void setTripDate(Date tripDate) {
 		this.tripDate = tripDate;
 	}
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 	public Date getCancelledDate() {
 		return cancelledDate;
 	}
@@ -43,10 +48,10 @@ public class Booking {
 	public void setGroupLeaderId(String groupLeaderId) {
 		this.groupLeaderId = groupLeaderId;
 	}
-	public String[] getGroupMembersId() {
+	public String getGroupMembersId() {
 		return groupMembersId;
 	}
-	public void setGroupMembersId(String[] groupMembersId) {
+	public void setGroupMembersId(String groupMembersId) {
 		this.groupMembersId = groupMembersId;
 	}
 	public Double getBookingTotal() {
@@ -55,13 +60,11 @@ public class Booking {
 	public void setBookingTotal(Double bookingTotal) {
 		this.bookingTotal = bookingTotal;
 	}
+	
 	@Override
 	public String toString() {
 		return "Booking [reference=" + reference + ", lastUpdated=" + lastUpdated + ", tripDate=" + tripDate
-				+ ", cancelledDate=" + cancelledDate + ", groupLeaderId=" + groupLeaderId + ", groupMembersId="
-				+ Arrays.toString(groupMembersId) + ", bookingTotal=" + bookingTotal + "]";
+				+ ", createdDate=" + createdDate + ", cancelledDate=" + cancelledDate + ", groupLeaderId="
+				+ groupLeaderId + ", groupMembersId=" + groupMembersId + ", bookingTotal=" + bookingTotal + "]";
 	}
-	
-	
-	
 }

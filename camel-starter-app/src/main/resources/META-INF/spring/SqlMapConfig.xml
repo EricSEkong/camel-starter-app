@@ -1,0 +1,44 @@
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<settings>
+		<setting name="useGeneratedKeys" value="false" />
+	</settings>
+
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAliases>
+		<typeAlias alias="DataRecord"
+			type="com.path.to.file.DataRecordClass" />
+	</typeAliases>
+
+	<!-- setup environment with JDBC data source -->
+	<environments default="production">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+				<property name="url" value="jdbc:derby:memory:mybatis;create=true" />
+			</dataSource>
+		</environment>
+		<environment id="production">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver"
+					value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+				<property name="url"
+					value="jdbc:sqlserver://localhost:1433;DatabaseName=ProdOneDB" />
+				<property name="username" value="SuitableUser" />
+				<property name="password" value="superSecretPassword" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mapping files -->
+	<mappers>
+		<mapper resource="com/blogspot/ericsekong/examples/mappers/sales/BookingDataRecord.xml" />
+	</mappers>
+
+</configuration>

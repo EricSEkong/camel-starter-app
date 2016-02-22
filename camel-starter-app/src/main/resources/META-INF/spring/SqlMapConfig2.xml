@@ -1,0 +1,32 @@
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<settings>
+		<setting name="useGeneratedKeys" value="false" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+
+	<!-- setup environment with JDBC data source -->
+	<environments default="production1">
+		<environment id="production1">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+			    <property name="driver"
+					value="com.mysql.jdbc.Driver" />
+				<property name="url"
+				    value="jdbc:mysql://127.0.0.1:3306/prod_db_1" />
+				<property name="username" value="RootUser" />
+				
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- mapping files -->
+	<mappers>
+		<mapper resource="com/blogspot/ericsekong/examples/mappers/sales/CustomerDataRecord.xml" />
+	</mappers>
+</configuration>
