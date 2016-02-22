@@ -1,4 +1,4 @@
-Spring / Camel tutorial project by Eric Ekong
+Spring / Camel tutorial project by Eric Ekong (Camel Router Spring Project)
 ===========================
 
 To build this project use

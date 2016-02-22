@@ -59,11 +59,6 @@
 			<artifactId>camel-mybatis</artifactId>
 			<version>2.16.1</version>
 		</dependency>
-		<dependency>
-			<groupId>io.fabric8.forge</groupId>
-			<artifactId>camel</artifactId>
-			<version>2.2.122</version>
-		</dependency>
 	</dependencies>
 
 	<build>
