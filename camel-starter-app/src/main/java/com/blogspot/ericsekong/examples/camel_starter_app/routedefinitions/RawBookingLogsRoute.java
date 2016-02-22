@@ -8,6 +8,7 @@ public class RawBookingLogsRoute extends RouteBuilder {
 	String processingEndpoint = "direct:b";
 	String insertSingleBooking = "mybatis-sqlserver-prod:insertBookingData";
 	String selectRecentBookings = "mybatis-sqlserver-prod:selectRecentBookingData";
+	String updateBooking = "mybatis-sqlserver-prod:updateBookingData";
 
 	@Override
 	public void configure() throws Exception {
@@ -23,7 +24,7 @@ public class RawBookingLogsRoute extends RouteBuilder {
 		from(selectRecentBookings)
 			.split(body())
 			// other processing
-			.to(processingEndpoint).end();
+			.to(updateBooking).end();
 		
 	}
 }

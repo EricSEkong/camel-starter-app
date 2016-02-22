@@ -13,3 +13,6 @@ For more help see the Apache Camel documentation
 
     http://camel.apache.org/
 
+
+For more info on this project go to 
+	http://ericsekong.blogspot.com

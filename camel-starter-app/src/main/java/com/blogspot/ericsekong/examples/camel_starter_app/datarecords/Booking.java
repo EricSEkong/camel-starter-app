@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Booking {
 
-	private String reference;
+	private String bookingId;
 	private Date lastUpdated;
 	private Date tripDate;
 	private Date createdDate;
@@ -12,11 +12,11 @@ public class Booking {
 	private String groupLeaderId;
 	private String groupMembersId;
 	private Double bookingTotal;
-	public String getReference() {
-		return reference;
+	public String getBookingId() {
+		return bookingId;
 	}
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setBookingId(String bookingId) {
+		this.bookingId = bookingId;
 	}
 	public Date getLastUpdated() {
 		return lastUpdated;
@@ -60,10 +60,9 @@ public class Booking {
 	public void setBookingTotal(Double bookingTotal) {
 		this.bookingTotal = bookingTotal;
 	}
-	
 	@Override
 	public String toString() {
-		return "Booking [reference=" + reference + ", lastUpdated=" + lastUpdated + ", tripDate=" + tripDate
+		return "Booking [bookingId=" + bookingId + ", lastUpdated=" + lastUpdated + ", tripDate=" + tripDate
 				+ ", createdDate=" + createdDate + ", cancelledDate=" + cancelledDate + ", groupLeaderId="
 				+ groupLeaderId + ", groupMembersId=" + groupMembersId + ", bookingTotal=" + bookingTotal + "]";
 	}
